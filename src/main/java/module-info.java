@@ -5,5 +5,8 @@ module donutnv.familytree {
 
     opens donutnv.familytree to javafx.fxml;
     exports donutnv.familytree;
+    exports donutnv.familytree.DataBase;
+    exports donutnv.familytree.Controller;
     requires org.neo4j.driver;
+    
 }
