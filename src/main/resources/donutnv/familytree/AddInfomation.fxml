@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="647.0" prefWidth="786.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.AddInfomationController">
+<!--    <stylesheets>
+        <URL value="@/styles/addinfomation.css" />
+    </stylesheets>-->
+   <children>
+      <Label alignment="CENTER" layoutX="211.0" layoutY="21.0" prefHeight="90.0" prefWidth="364.0" text="Add Information" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Vivaldi Italic" size="60.0" />
+         </font>
+      </Label>
+      <Pane layoutX="62.0" layoutY="111.0" prefHeight="511.0" prefWidth="559.0">
+         <children>
+            <Label layoutX="48.0" layoutY="37.0" prefHeight="49.0" prefWidth="148.0" text="ID ">
+               <font>
+                  <Font name="Papyrus" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="86.0" prefHeight="39.0" prefWidth="116.0" text="Name ">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="125.0" prefHeight="39.0" prefWidth="116.0" text="Sex ">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="164.0" prefHeight="39.0" prefWidth="142.0" text="Phone Number">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="203.0" prefHeight="39.0" prefWidth="116.0" text="Date of Birth">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="242.0" prefHeight="39.0" prefWidth="116.0" text="Date of Death">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="281.0" prefHeight="39.0" prefWidth="116.0" text="Place of Birth ">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="320.0" prefHeight="39.0" prefWidth="116.0" text="Education">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="359.0" prefHeight="39.0" prefWidth="116.0" text="Major">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="398.0" prefHeight="39.0" prefWidth="116.0" text="Note">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField layoutX="175.0" layoutY="47.0" prefHeight="8.0" prefWidth="312.0">
+               <font>
+                  <Font name="Pristina" size="14.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="175.0" layoutY="89.0" prefHeight="8.0" prefWidth="312.0">
+               <font>
+                  <Font name="Pristina" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
