@@ -8,5 +8,10 @@ module donutnv.familytree {
     exports donutnv.familytree.DataBase;
     exports donutnv.familytree.Controller;
     requires org.neo4j.driver;
-    
+    requires java.desktop;
+    requires java.logging;
+    requires org.jgrapht.core;
+    requires org.jgrapht.ext;
+    requires org.jgrapht.demo;
+
 }
