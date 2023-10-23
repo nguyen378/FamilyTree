@@ -1,0 +1,18 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-background-color: "EAE7D6"
+}
+.txtfiled-design{
+    -fx-background-radius:15px;
+    -fx-border-radius:15px;
+    -fx-text-inner-color:#000;
+}
+.cboSex{
+    -fx-font-size: 18px;
+    -fx-font-family: 'Pristina';
+}
+
+

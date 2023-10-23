@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="782.0" prefWidth="715.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.AddInformationController">
+    <stylesheets>
+        <URL value="@/donutnv/familytree/styles/addinformation.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="179.0" layoutY="14.0" stylesheets="@styles/addinformation.css" text="Add Information">
+         <font>
+            <Font name="Vivaldi Italic" size="60.0" />
+         </font>
+      </Label>
+      <Pane layoutX="62.0" layoutY="93.0" prefHeight="574.0" prefWidth="592.0" stylesheets="@styles/addinformation.css">
+         <children>
+            <Label layoutX="44.0" layoutY="30.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="ID">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField id="txtID" fx:id="txtID" layoutX="209.0" layoutY="29.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+               <font>
+                  <Font name="Pristina" size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="44.0" layoutY="84.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Name ">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField id="txtName" fx:id="txtName" layoutX="209.0" layoutY="83.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+               <font>
+                  <Font name="Pristina" size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="44.0" layoutY="136.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Sex ">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="190.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Phone Number">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField id="txtPhone" fx:id="txtPhone" layoutX="209.0" layoutY="189.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+               <font>
+                  <Font name="Pristina" size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="44.0" layoutY="241.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Date of Birth">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="295.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Date of Death">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="347.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Place of Birth">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField id="txtPlace" fx:id="txtPlace" layoutX="209.0" layoutY="346.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+               <font>
+                  <Font name="Pristina" size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="44.0" layoutY="399.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Education">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField id="txtEdu" fx:id="txtEdu" layoutX="209.0" layoutY="398.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+               <font>
+                  <Font name="Pristina" size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="44.0" layoutY="451.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Major">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField id="txtMajor" fx:id="txtMajor" layoutX="209.0" layoutY="450.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+               <font>
+                  <Font name="Pristina" size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="44.0" layoutY="504.0" prefHeight="39.0" prefWidth="165.0" stylesheets="@styles/addinformation.css" text="Notes">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField id="txtNotes" fx:id="txtNotes" layoutX="209.0" layoutY="503.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+               <font>
+                  <Font name="Pristina" size="18.0" />
+               </font>
+            </TextField>
+            <ComboBox id="cboSex" fx:id="cboSex" layoutX="209.0" layoutY="136.0" prefHeight="39.0" prefWidth="340.0" styleClass="cboSex" stylesheets="@styles/addinformation.css" />
+            <DatePicker id="dpDateofBirth" fx:id="dpDateOfBirth" layoutX="209.0" layoutY="243.0" prefHeight="39.0" prefWidth="340.0" styleClass="cboSex" stylesheets="@styles/addinformation.css" />
+            <DatePicker id="dpDateofDeath" fx:id="dpDateOfDeath" layoutX="209.0" layoutY="295.0" prefHeight="39.0" prefWidth="340.0" styleClass="cboSex" stylesheets="@styles/addinformation.css" />
+         </children>
+      </Pane>
+      <Pane layoutX="62.0" layoutY="657.0" prefHeight="90.0" prefWidth="592.0">
+         <children>
+            <Button id="btnAdd" fx:id="btnAdd" layoutX="39.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #5D7B6F; -fx-text-fill: #FFF; -fx-cursor: hand;" text="Add">
+               <font>
+                  <Font name="Poor Richard" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
