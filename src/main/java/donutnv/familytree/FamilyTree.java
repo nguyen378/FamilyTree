@@ -114,7 +114,7 @@ public class FamilyTree extends javax.swing.JFrame {
      */
     public FamilyTree() {
 
-        super("Hello, World!");
+        super("Family Tree Display");
         mxCompactTreeLayout layout = new mxCompactTreeLayout(graph, false);
         layout.setUseBoundingBox(false);
         layout.setEdgeRouting(false);
@@ -391,7 +391,7 @@ public class FamilyTree extends javax.swing.JFrame {
             public void run() {
                 FamilyTree frame = new FamilyTree();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(900, 320);
+                frame.setSize(1500, 800);
                 frame.setVisible(true);
                 frame.setLocationRelativeTo(null);
 
