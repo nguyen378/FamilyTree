@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 /**
@@ -22,16 +23,29 @@ public class AddInformationController implements Initializable {
 
     @FXML
     private  TextField txtID;
-    
+    @FXML 
+    private TextField txtName;
     @FXML
     private ComboBox<String> cboSex;
-    
+    @FXML
+    private TextField txtPhone;
+    @FXML
+    private DatePicker dpDateOfBirth;
+    @FXML 
+    private DatePicker dpDateOfDeath;
+    @FXML
+    private TextField txtPlace;
+    @FXML
+    private TextField txtEdu;
+    @FXML
+    private TextField txtMajor;
+    @FXML
+    private TextField txtNotes;
     
 
     /**
      * Initializes the controller class.
      */
-    @FXML
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
