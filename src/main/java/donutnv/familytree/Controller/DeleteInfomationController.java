@@ -12,6 +12,8 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -43,6 +45,35 @@ public class DeleteInfomationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         loadID();
+        loadCbo();
+        deleteInfo();
+    }
+
+    public void deleteInfo() {
+        btnDelete.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                int id = Integer.parseInt(cboID.getValue().toString());
+                String query = "match(n:Information) where n.id = " + id + " detach delete n";
+                try (Driver driver = ConnectDatbase.createDriver()) {
+                    Session session = driver.session();
+                    try {
+                        session.run(query);
+                        JOptionPane.showMessageDialog(null, "Delete successful!", "Success", 1);
+                        loadCbo();
+                        txtName.setText("");
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Delete failed!", "Error", 1);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
+                }
+            }
+        });
+    }
+
+    public void loadCbo() {
+        cboID.getItems().clear();
         cboID.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> ov, String t, String t1) {
@@ -50,21 +81,15 @@ public class DeleteInfomationController implements Initializable {
                 try (Driver driver = ConnectDatbase.createDriver()) {
                     Session session = driver.session();
                     Result result = session.run(query);
-                        org.neo4j.driver.Record record = result.next();
-                        txtName.setText(record.get( "name").toString());
+                    org.neo4j.driver.Record record = result.next();
+                    txtName.setText(record.get("name").toString());
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
-
                 }
             }
         });
     }
 
-    public void loadName() {
-        String query = "0;";
-    }
-
-    @FXML
     public void loadID() {
         String query = "match (n:Information) return n.id as id";
         List<String> listID = new ArrayList<>();

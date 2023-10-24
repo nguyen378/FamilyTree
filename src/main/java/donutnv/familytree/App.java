@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("information"));
+        scene = new Scene(loadFXML("Deleteinfomation"));
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Login Form");
