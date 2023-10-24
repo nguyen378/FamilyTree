@@ -4,9 +4,14 @@
  */
 package donutnv.familytree.Controller;
 
+import donutnv.familytree.FamilyTree;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -15,12 +20,26 @@ import javafx.fxml.Initializable;
  */
 public class HomeController implements Initializable {
 
+    @FXML
+    private Button btnShowFamilyTree;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        btnShowFamilyTree.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent t) {
+                FamilyTree app = new FamilyTree();
+                app.setSize(2000, 600);
+                app.setLocationRelativeTo(null);
+                app.setVisible(true);
+            }
+
+        });
+    }
+    // TODO
+
 }

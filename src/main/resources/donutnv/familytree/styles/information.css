@@ -2,6 +2,6 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.login-bg{
+    -fx-background-color:#EAE7D6;
 }
