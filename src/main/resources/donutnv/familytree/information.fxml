@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="939.0" prefWidth="583.0" styleClass="login-bg" stylesheets="@styles/information.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.InformationController">
+   <children>
+      <Label layoutX="65.0" layoutY="28.0" prefHeight="82.0" prefWidth="453.0" text="Family Information">
+         <font>
+            <Font name="Vivaldi Italic" size="61.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgSex" fitHeight="334.0" fitWidth="375.0" layoutX="166.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/nam.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="38.0" layoutY="523.0" text="Name">
+         <font>
+            <Font name="Pristina" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="611.0" text="Date of Birth">
+         <font>
+            <Font name="Pristina" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="695.0" text="Sex">
+         <font>
+            <Font name="Pristina" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="788.0" text="Place of Birth">
+         <font>
+            <Font name="Pristina" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelDate" layoutX="336.0" layoutY="611.0" text="Text">
+         <font>
+            <Font name="Pristina" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelName" layoutX="346.0" layoutY="523.0" text="Text">
+         <font>
+            <Font name="Pristina" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelSex" layoutX="336.0" layoutY="701.0" text="Text">
+         <font>
+            <Font name="Pristina" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelPlace" layoutX="335.0" layoutY="799.0" text="Text">
+         <font>
+            <Font name="Pristina" size="38.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
