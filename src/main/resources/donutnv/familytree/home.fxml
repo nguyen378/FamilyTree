@@ -11,7 +11,7 @@
         <URL value="@/donutnv/familytree/styles/home.css" />
     </stylesheets>
    <children>
-      <Button layoutX="117.0" layoutY="403.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="294.0" style="-fx-background-color: transparent;" text="Show Family Tree">
+      <Button fx:id="btnShowFamilyTree" layoutX="117.0" layoutY="403.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="294.0" style="-fx-background-color: transparent;" styleClass="button-design" stylesheets="@styles/home.css" text="Show Family Tree">
          <font>
             <Font name="Blackadder ITC" size="31.0" />
          </font>
@@ -24,22 +24,23 @@
       <Line endX="59.0" endY="12.0" layoutX="315.0" layoutY="404.0" startX="-18.0" />
       <Line endX="36.5" endY="63.0" layoutX="214.0" layoutY="116.0" startX="-39.5" startY="-31.0" />
       <Line endX="-14.0" endY="93.0" layoutX="295.0" layoutY="84.0" startX="38.5" startY="-0.5" />
-      <Button layoutX="333.0" layoutY="110.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="155.0" style="-fx-background-color: transparent;" text="Information">
+      <Button layoutX="333.0" layoutY="110.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="155.0" style="-fx-background-color: transparent;" styleClass="button-design" stylesheets="@styles/home.css" text="Information">
          <font>
             <Font name="Blackadder ITC" size="28.0" />
          </font>
       </Button>
-      <Button layoutX="314.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Relation">
+      <Button layoutX="314.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="button-design" stylesheets="@styles/home.css" text="Relation">
          <font>
             <Font name="Blackadder ITC" size="28.0" />
          </font>
       </Button>
       <Button fx:id="buttonlv" layoutX="91.0" layoutY="24.0" mnemonicParsing="false" onAction="#buttonliving" style="-fx-background-color: transparent;" text="Living At">
+
          <font>
             <Font name="Blackadder ITC" size="28.0" />
          </font>
       </Button>
-      <Button layoutX="57.0" layoutY="113.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Location">
+      <Button layoutX="57.0" layoutY="113.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="button-design" stylesheets="@styles/home.css" text="Location">
          <font>
             <Font name="Blackadder ITC" size="28.0" />
          </font>

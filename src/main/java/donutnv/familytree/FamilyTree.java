@@ -15,12 +15,15 @@ import com.mxgraph.util.mxEventObject;
 import com.mxgraph.util.mxEventSource;
 import com.mxgraph.view.mxGraph;
 import com.mxgraph.view.mxStylesheet;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import org.jgrapht.graph.DefaultEdge;
 import org.neo4j.driver.AuthTokens;
 import org.neo4j.driver.Driver;
@@ -114,13 +117,27 @@ public class FamilyTree extends javax.swing.JFrame {
      */
     public FamilyTree() {
 
-        super("Family Tree Display");
+         mxGraphComponent graphComponent = new mxGraphComponent(graph);
+
+        // Set the background color of the graph component
+        graphComponent.setBackground(new Color(0xEAE7D6));
+
+        // Set the vertex style in the stylesheet
+        mxStylesheet stylesheet = graph.getStylesheet();
+        Map<String, Object> vertexStyle = stylesheet.getDefaultVertexStyle();
+        vertexStyle.put(mxConstants.STYLE_FONTCOLOR, "#5D7B6F");
+        vertexStyle.put(mxConstants.STYLE_FONTSTYLE, Font.PLAIN);
+
+        // Create the compact tree layout
         mxCompactTreeLayout layout = new mxCompactTreeLayout(graph, false);
         layout.setUseBoundingBox(false);
         layout.setEdgeRouting(false);
         layout.setLevelDistance(30);
         layout.setNodeDistance(10);
 
+        // Add the graph component to the content pane
+        getContentPane().add(graphComponent);
+        
         Object parent = graph.getDefaultParent();
         try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@")); Session session = driver.session()) {
             String cypherQuery = "MATCH (root:Information)-[r:Has_Relation]->()\n"
@@ -153,7 +170,8 @@ public class FamilyTree extends javax.swing.JFrame {
 
                 Map<Object, Node> childMap = loadAndDisplayGenerations(parent, root, rootName, "Cha con");
                 Map<Object, Node> grandChild = loadAndDisplayGrandchildren(parent, childMap, "Cha con");
-                loadAndDisplayGreatGrandchildren(parent, grandChild, relationshipName);
+                loadAndDisplayGreatchildren(parent, grandChild, "Cha con");
+                loadAndDisplayGreatchildren(parent, grandChild, "Mẹ con");
                 layout.execute(parent);
             } finally {
                 graph.getModel().endUpdate();
@@ -168,7 +186,7 @@ public class FamilyTree extends javax.swing.JFrame {
             }
         });
 
-        mxGraphComponent graphComponent = new mxGraphComponent(graph);
+//        mxGraphComponent graphComponent = new mxGraphComponent(graph);
         getContentPane().add(graphComponent);
     }
 
@@ -225,10 +243,9 @@ public class FamilyTree extends javax.swing.JFrame {
             String relationshipPaName = null;
             String relationshipSPName = null;
 
-            //String cypherQuery = "MATCH (child:Information{name:$childName})-[r:Has_Relation{relation:$relationType}]->(grandchild:Information) RETURN grandchild";
             String cypherQuery = "MATCH (child:Information{name:$childName})-[r:Has_Relation{relation:$relationType}]->(grandchild:Information)"
                     + "OPTIONAL MATCH (grandchild)-[o:Has_Relation{relation:'Vợ chồng'}]-(spouse:Information)"
-                    + "RETURN grandchild, spouse,r,o";
+                    + "RETURN grandchild, spouse, r, o";
             try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@")); Session session = driver.session()) {
                 Result result = session.run(cypherQuery, parameters("childName", childName, "relationType", relationType));
                 while (result.hasNext()) {
@@ -250,13 +267,12 @@ public class FamilyTree extends javax.swing.JFrame {
                         relationshipPa = relationshipPaValue.asRelationship();
                         relationshipPaName = relationshipPa.get("relation").asString();
                     }
-
                     Relationship relationshipSP = null;
                     Value relationshipSPValue = record.get("o");
                     if (!relationshipSPValue.isNull()) {
                         relationshipSP = relationshipSPValue.asRelationship();
-                         relationshipSPName = relationshipSP.get("relation").asString();
-                    }             
+                        relationshipSPName = relationshipSP.get("relation").asString();
+                    }
 
                     graph.getModel().beginUpdate();
                     try {
@@ -267,6 +283,11 @@ public class FamilyTree extends javax.swing.JFrame {
                         // Tạo cạnh kết nối từ nút con đến nút cháu
                         graph.insertEdge(parent, null, relationshipPaName, childVertex, grandchildVertex);
                         graph.insertEdge(parent, null, relationshipSPName, grandchildVertex, spouseVertex);
+
+                        // Lưu thông tin của nút cháu vào grandChildMap
+                        grandChild.put(grandchildVertex, grandchildNode);
+
+                        xOffset += 150;
                     } finally {
                         graph.getModel().endUpdate();
                     }
@@ -275,62 +296,71 @@ public class FamilyTree extends javax.swing.JFrame {
         }
         return grandChild;
     }
-    public Map<Object, Node> loadAndDisplayGreatGrandchildren(Object parent, Map<Object, Node> grandchildMap, String relationType) {
-    Map<Object, Node> greatGrandchildMap = new HashMap<>();
 
-    for (Map.Entry<Object, Node> entry : grandchildMap.entrySet()) {
-        Object grandchildVertex = entry.getKey();
-        Node grandchildNode = entry.getValue();
-        String grandchildName = grandchildNode.get("name").asString();
-        System.out.println(grandchildName);
+    public Map<Object, Node> loadAndDisplayGreatchildren(Object parent, Map<Object, Node> grandchilddMap, String relationType) {
+        Map<Object, Node> greatChild = new HashMap<>();
+        for (Map.Entry<Object, Node> entry : grandchilddMap.entrySet()) {
+            Object childVertex = entry.getKey();
+            Node childNode = entry.getValue();
+            String childName = childNode.get("name").asString();
+            String spouseName = null;
+            int spouseId = 0;
+            String relationshipPaName = null;
+            String relationshipSPName = null;
 
-        String cypherQuery = "MATCH (grandchild:Information{name:$grandchildName})-[:Has_Relation{relation:$relationType}]->(greatgrandchild:Information)"
-                + "OPTIONAL MATCH (greatgrandchild)-[o:Has_Relation{relation:'Vợ chồng'}]-(spouse:Information)"
-                + "RETURN greatgrandchild, spouse, o";
-        
-        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"));
-             Session session = driver.session()) {
+            String cypherQuery = "MATCH (child:Information{name:$childName})-[r:Has_Relation{relation:$relationType}]->(grandchild:Information)"
+                    + "OPTIONAL MATCH (grandchild)-[o:Has_Relation{relation:'Vợ chồng'}]-(spouse:Information)"
+                    + "RETURN grandchild, spouse, r, o";
+            try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@")); Session session = driver.session()) {
+                Result result = session.run(cypherQuery, parameters("childName", childName, "relationType", relationType));
+                while (result.hasNext()) {
+                    int xOffset = 0;
+                    Record record = result.next();
+                    Node grandchildNode = record.get("grandchild").asNode();
+                    String grandchildName = grandchildNode.get("name").asString();
+                    int grandchildId = grandchildNode.get("id").asInt();
+                    Node spouse = null;
+                    Value spouseValue = record.get("spouse");
+                    if (!spouseValue.isNull()) {
+                        spouse = spouseValue.asNode();
+                        spouseName = spouse.get("name").asString();
+                        spouseId = spouse.get("id").asInt();
+                    }
+                    Relationship relationshipPa = null;
+                    Value relationshipPaValue = record.get("r");
+                    if (!relationshipPaValue.isNull()) {
+                        relationshipPa = relationshipPaValue.asRelationship();
+                        relationshipPaName = relationshipPa.get("relation").asString();
+                    }
+                    Relationship relationshipSP = null;
+                    Value relationshipSPValue = record.get("o");
+                    if (!relationshipSPValue.isNull()) {
+                        relationshipSP = relationshipSPValue.asRelationship();
+                        relationshipSPName = relationshipSP.get("relation").asString();
+                    }
 
-            Result result = session.run(cypherQuery, parameters("grandchildName", grandchildName, "relationType", relationType));
+                    graph.getModel().beginUpdate();
+                    try {
+                        // Tạo đỉnh cho nút cháu
+                        Object grandchildVertex = graph.insertVertex(parent, Integer.toString(grandchildId), grandchildName, 0, 0, 100, 50);
+                        Object spouseVertex = graph.insertVertex(parent, Integer.toString(spouseId), spouseName, xOffset, 60, 100, 50);
 
-            while (result.hasNext()) {
-                Record record = result.next();
-                Node greatGrandchildNode = record.get("greatgrandchild").asNode();
-                String greatGrandchildName = greatGrandchildNode.get("name").asString();
-                int greatGrandchildId = greatGrandchildNode.get("id").asInt();
-                
-                Node spouse = null;
-                Value spouseValue = record.get("spouse");
-                if (!spouseValue.isNull()) {
-                    spouse = spouseValue.asNode();
-                    // Now you can safely use the 'spouse' node.
-                    // Extract any additional information or perform further processing as needed.
-                }
+                        // Tạo cạnh kết nối từ nút con đến nút cháu
+                        graph.insertEdge(parent, null, relationshipPaName, childVertex, grandchildVertex);
+                        graph.insertEdge(parent, null, relationshipSPName, grandchildVertex, spouseVertex);
 
-                Relationship relationship = record.get("o").asRelationship();
-                String relationshipName = relationship.get("relation").asString();
+                        // Lưu thông tin của nút cháu vào grandChildMap
+                        greatChild.put(grandchildVertex, grandchildNode);
 
-                graph.getModel().beginUpdate();
-                try {
-                    // Tạo đỉnh cho nút cháu
-                    Object greatGrandchildVertex = graph.insertVertex(parent, Integer.toString(greatGrandchildId), greatGrandchildName, 0, 0, 100, 50);
-
-                    // Tạo cạnh kết nối từ nút cháu đến nút chắn
-                    graph.insertEdge(parent, null, relationshipName, grandchildVertex, greatGrandchildVertex);
-
-                    // Lưu thông tin của great-grandchild vào greatGrandchildMap
-                    greatGrandchildMap.put(greatGrandchildVertex, greatGrandchildNode);
-                } finally {
-                    graph.getModel().endUpdate();
+                        xOffset += 150;
+                    } finally {
+                        graph.getModel().endUpdate();
+                    }
                 }
             }
         }
+        return greatChild;
     }
-
-    return greatGrandchildMap;
-}
-
-     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -342,6 +372,8 @@ public class FamilyTree extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 255, 51));
+        setFont(new java.awt.Font("Pristina", 0, 14)); // NOI18N
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -385,13 +417,14 @@ public class FamilyTree extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+         
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 FamilyTree frame = new FamilyTree();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(1500, 800);
+                frame.setSize(2000, 600);
                 frame.setVisible(true);
                 frame.setLocationRelativeTo(null);
 

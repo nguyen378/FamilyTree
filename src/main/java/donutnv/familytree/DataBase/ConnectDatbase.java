@@ -11,8 +11,8 @@ import org.neo4j.driver.*;
  */
 public class ConnectDatbase {
     public static final String URL = "bolt://localhost:7687";
-    public static final String USER = null;
-    public static final String PASSWORD = null;
+    public static final String USER = "neo4j";
+    public static final String PASSWORD = "123456789";
     public static Driver createDriver() {
         return GraphDatabase.driver(URL, AuthTokens.basic(USER, PASSWORD));
     }
