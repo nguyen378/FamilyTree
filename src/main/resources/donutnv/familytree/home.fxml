@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="498.0" prefWidth="495.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="498.0" prefWidth="495.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.HomeController">
     <stylesheets>
         <URL value="@/donutnv/familytree/styles/home.css" />
     </stylesheets>
@@ -34,7 +34,7 @@
             <Font name="Blackadder ITC" size="28.0" />
          </font>
       </Button>
-      <Button layoutX="91.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Living At">
+      <Button fx:id="buttonlv" layoutX="91.0" layoutY="24.0" mnemonicParsing="false" onAction="#buttonliving" style="-fx-background-color: transparent;" text="Living At">
          <font>
             <Font name="Blackadder ITC" size="28.0" />
          </font>

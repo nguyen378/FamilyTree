@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login"), 800, 450);
+        scene = new Scene(loadFXML("livingat"), 800, 450);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Login Form");
@@ -30,6 +30,7 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        
         return fxmlLoader.load();
     }
 
