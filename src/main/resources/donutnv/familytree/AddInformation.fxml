@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="782.0" prefWidth="715.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.AddInformationController">
+<AnchorPane id="AnchorPane" prefHeight="782.0" prefWidth="715.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.AddInformationController">
     <stylesheets>
         <URL value="@/donutnv/familytree/styles/addinformation.css" />
     </stylesheets>
@@ -114,7 +114,7 @@
       </Pane>
       <Pane layoutX="62.0" layoutY="657.0" prefHeight="90.0" prefWidth="592.0">
          <children>
-            <Button id="btnAdd" fx:id="btnAdd" layoutX="39.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #5D7B6F; -fx-text-fill: #FFF; -fx-cursor: hand;" text="Add">
+            <Button id="btnAdd" fx:id="btnAdd" layoutX="39.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #5D7B6F; -fx-text-fill: #FFF; -fx-cursor: hand;" stylesheets="@styles/addinformation.css" text="Add">
                <font>
                   <Font name="Poor Richard" size="24.0" />
                </font>
