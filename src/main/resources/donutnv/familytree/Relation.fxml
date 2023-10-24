@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="288.0" prefWidth="465.0" style="-fx-background-color: EAE7d6;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.RelationController">
+    <stylesheets>
+        <URL value="@/donutnv/familytree/styles/relation.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="190.0" layoutY="24.0" text="Relation">
+         <font>
+            <Font name="Vivaldi Italic" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="73.0" text="Person_1">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="123.0" text="Person_2">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="169.0" text="Relation">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnadd" layoutX="70.0" layoutY="222.0" mnemonicParsing="false" onAction="#Buttonadd" text="Add">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btndel" layoutX="196.0" layoutY="222.0" mnemonicParsing="false" onAction="#Buttondel" text="Delete">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnrelat" layoutX="337.0" layoutY="222.0" mnemonicParsing="false" onAction="#ButtonRelat" text="Edit">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtps1" layoutX="170.0" layoutY="74.0" promptText="Person1" />
+      <TextField fx:id="txtps2" layoutX="170.0" layoutY="124.0" promptText="Person2" />
+      <ComboBox fx:id="cborelation" layoutX="170.0" layoutY="170.0" prefWidth="150.0" promptText="Relation" />
+   </children>
+</AnchorPane>
