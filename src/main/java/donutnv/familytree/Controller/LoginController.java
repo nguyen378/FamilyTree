@@ -24,7 +24,7 @@ public class LoginController implements Initializable {
 
     private static final String URI = "bolt://localhost:7687";
     private static final String USER = "neo4j";
-    private static final String PASSWORD = "123456789";
+    private static final String PASSWORD = "Phat121002@";
 
     public void initialize(URL url, ResourceBundle rb) {
     }

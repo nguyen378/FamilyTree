@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="782.0" prefWidth="715.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.AddInformationController">
+<AnchorPane id="AnchorPane" prefHeight="782.0" prefWidth="715.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.AddInformationController">
     <stylesheets>
         <URL value="@/donutnv/familytree/styles/addinformation.css" />
     </stylesheets>
@@ -27,7 +27,7 @@
                   <Font name="Pristina" size="24.0" />
                </font>
             </Label>
-            <TextField id="txtID" fx:id="txtID" layoutX="209.0" layoutY="29.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+            <TextField id="txtID" fx:id="txtID" layoutX="209.0" layoutY="29.0" prefHeight="10.0" prefWidth="340.0" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css">
                <font>
                   <Font name="Pristina" size="18.0" />
                </font>
@@ -37,7 +37,7 @@
                   <Font name="Pristina" size="24.0" />
                </font>
             </Label>
-            <TextField id="txtName" fx:id="txtName" layoutX="209.0" layoutY="83.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+            <TextField id="txtName" fx:id="txtName" layoutX="209.0" layoutY="83.0" prefHeight="10.0" prefWidth="340.0" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css">
                <font>
                   <Font name="Pristina" size="18.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Font name="Pristina" size="24.0" />
                </font>
             </Label>
-            <TextField id="txtPhone" fx:id="txtPhone" layoutX="209.0" layoutY="189.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+            <TextField id="txtPhone" fx:id="txtPhone" layoutX="209.0" layoutY="189.0" prefHeight="10.0" prefWidth="340.0" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css">
                <font>
                   <Font name="Pristina" size="18.0" />
                </font>
@@ -72,7 +72,7 @@
                   <Font name="Pristina" size="24.0" />
                </font>
             </Label>
-            <TextField id="txtPlace" fx:id="txtPlace" layoutX="209.0" layoutY="346.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+            <TextField id="txtPlace" fx:id="txtPlace" layoutX="209.0" layoutY="346.0" prefHeight="10.0" prefWidth="340.0" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css">
                <font>
                   <Font name="Pristina" size="18.0" />
                </font>
@@ -82,7 +82,7 @@
                   <Font name="Pristina" size="24.0" />
                </font>
             </Label>
-            <TextField id="txtEdu" fx:id="txtEdu" layoutX="209.0" layoutY="398.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+            <TextField id="txtEdu" fx:id="txtEdu" layoutX="209.0" layoutY="398.0" prefHeight="10.0" prefWidth="340.0" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css">
                <font>
                   <Font name="Pristina" size="18.0" />
                </font>
@@ -92,7 +92,7 @@
                   <Font name="Pristina" size="24.0" />
                </font>
             </Label>
-            <TextField id="txtMajor" fx:id="txtMajor" layoutX="209.0" layoutY="450.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+            <TextField id="txtMajor" fx:id="txtMajor" layoutX="209.0" layoutY="450.0" prefHeight="10.0" prefWidth="340.0" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css">
                <font>
                   <Font name="Pristina" size="18.0" />
                </font>
@@ -102,7 +102,7 @@
                   <Font name="Pristina" size="24.0" />
                </font>
             </Label>
-            <TextField id="txtNotes" fx:id="txtNotes" layoutX="209.0" layoutY="503.0" prefHeight="10.0" prefWidth="340.0" stylesheets="@styles/addinformation.css">
+            <TextField id="txtNotes" fx:id="txtNotes" layoutX="209.0" layoutY="503.0" prefHeight="10.0" prefWidth="340.0" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css">
                <font>
                   <Font name="Pristina" size="18.0" />
                </font>
@@ -114,7 +114,7 @@
       </Pane>
       <Pane layoutX="62.0" layoutY="657.0" prefHeight="90.0" prefWidth="592.0">
          <children>
-            <Button id="btnAdd" fx:id="btnAdd" layoutX="39.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #5D7B6F; -fx-text-fill: #FFF; -fx-cursor: hand;" text="Add">
+            <Button id="btnAdd" fx:id="btnAdd" layoutX="23.0" layoutY="18.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #5D7B6F; -fx-text-fill: #FFF; -fx-cursor: hand;" text="Add">
                <font>
                   <Font name="Poor Richard" size="24.0" />
                </font>
