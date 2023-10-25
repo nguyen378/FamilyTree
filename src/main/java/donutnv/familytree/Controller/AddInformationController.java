@@ -64,6 +64,7 @@ public class AddInformationController implements Initializable {
     private Button btnAdd;
     @FXML
     private Button btndelete;
+    
     private static Scene scene;
 
     /**
@@ -100,17 +101,14 @@ public class AddInformationController implements Initializable {
         dpDateOfDeath.setConverter(converter);
 
         btnAdd.setOnAction(new EventHandler<ActionEvent>() {
-
             @Override
             public void handle(ActionEvent t) {
                 addInfo();
             }
-
         });
         btndelete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("DeleteInfomation.fxml"));
                 Parent root;
                 try {

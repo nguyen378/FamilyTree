@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.DeleteLocationController">
-    <stylesheets>
-        <URL value="@/donutnv/familytree/styles/deletelocation.css"/>
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@styles/addinformation.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.DeleteLocationController">
+   <children>
+      <Label layoutX="141.0" layoutY="45.0" text="Delete Location">
+         <font>
+            <Font name="Vivaldi Italic" size="60.0" />
+         </font>
+      </Label>
+      <Pane layoutX="108.0" layoutY="143.0" prefHeight="161.0" prefWidth="402.0">
+         <children>
+            <Label layoutX="27.0" layoutY="34.0" prefHeight="39.0" prefWidth="73.0" text="ID">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cboID" layoutX="100.0" layoutY="33.0" prefHeight="25.0" prefWidth="263.0" stylesheets="@styles/addinformation.css">
+               <styleClass>
+                  <String fx:value="txtfiled-design" />
+                  <String fx:value="cboSex" />
+               </styleClass>
+            </ComboBox>
+            <Label layoutX="27.0" layoutY="86.0" prefHeight="39.0" prefWidth="73.0" text="Name">
+               <font>
+                  <Font name="Pristina" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtName" editable="false" layoutX="100.0" layoutY="85.0" prefHeight="25.0" prefWidth="263.0" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css">
+               <font>
+                  <Font name="Pristina" size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Button fx:id="btnDelete" layoutX="108.0" layoutY="323.0" mnemonicParsing="false" style="-fx-background-color: #5D7B6F; -fx-text-fill: #fff; -fx-cursor: hand;" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css" text="Delete ">
+         <font>
+            <Font name="Pristina" size="24.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

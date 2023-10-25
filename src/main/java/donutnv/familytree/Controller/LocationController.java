@@ -4,14 +4,24 @@
  */
 package donutnv.familytree.Controller;
 
+import donutnv.familytree.App;
 import donutnv.familytree.DataBase.ConnectDatbase;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.Session;
@@ -50,6 +60,33 @@ public class LocationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+
+        btnAdd.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent t) {
+                addLocation();
+            }
+        });
+        btnDelete.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("DeleteLocation.fxml"));
+                Parent root;
+                try {
+                    root = loader.load();
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Delete");
+                    newStage.setScene(new Scene(root));
+                    newStage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(AddInformationController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+        );
     }
 
     public void addLocation() {
@@ -67,5 +104,5 @@ public class LocationController implements Initializable {
             JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
         }
     }
-    
+
 }

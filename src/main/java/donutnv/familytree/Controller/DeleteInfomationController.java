@@ -49,6 +49,7 @@ public class DeleteInfomationController implements Initializable {
         deleteInfo();
     }
 
+    @FXML
     public void deleteInfo() {
         btnDelete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -60,8 +61,6 @@ public class DeleteInfomationController implements Initializable {
                     try {
                         session.run(query);
                         JOptionPane.showMessageDialog(null, "Delete successful!", "Success", 1);
-                        loadCbo();
-                        txtName.setText("");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Delete failed!", "Error", 1);
                     }
@@ -73,7 +72,6 @@ public class DeleteInfomationController implements Initializable {
     }
 
     public void loadCbo() {
-        cboID.getItems().clear();
         cboID.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> ov, String t, String t1) {
@@ -90,22 +88,21 @@ public class DeleteInfomationController implements Initializable {
         });
     }
 
+    @FXML
     public void loadID() {
-        String query = "match (n:Information) return n.id as id";
+        String query = "match (n:Information) return n.id as i";
         List<String> listID = new ArrayList<>();
         try (Driver driver = ConnectDatbase.createDriver()) {
             Session session = driver.session();
             Result result = session.run(query);
             while (result.hasNext()) {
                 org.neo4j.driver.Record record = result.next();
-                listID.add(record.get("id").toString());
+                listID.add(record.get("i").toString());
             }
             cboID.setItems(FXCollections.observableArrayList(listID));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
         }
     }
-    
-
 
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@styles/addinformation.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.DeleteInfomationController">
+<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@styles/addinformation.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.DeleteInfomationController">
    <children>
       <Label layoutX="98.0" layoutY="40.0" text="Delete Information">
          <font>
