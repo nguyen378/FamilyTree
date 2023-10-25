@@ -2,6 +2,7 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -52,27 +53,27 @@
             <Font name="Vivaldi Italic" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="143.0" layoutY="404.0" mnemonicParsing="false" text="Add">
+      <Button fx:id="btnadd" layoutX="143.0" layoutY="404.0" mnemonicParsing="false" onAction="#buttonadd" text="Add">
          <font>
             <Font name="Pristina" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="231.0" layoutY="404.0" mnemonicParsing="false" text="Delete">
+      <Button fx:id="btndel" layoutX="231.0" layoutY="404.0" mnemonicParsing="false" onAction="#buttondelete" text="Delete">
          <font>
             <Font name="Pristina" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="329.0" layoutY="404.0" mnemonicParsing="false" text="Edit">
+      <Button fx:id="btnedit" layoutX="329.0" layoutY="404.0" mnemonicParsing="false" onAction="#buttonedit" text="Edit">
          <font>
             <Font name="Pristina" size="20.0" />
          </font>
       </Button>
-      <TextField layoutX="144.0" layoutY="95.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField layoutX="144.0" layoutY="135.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField layoutX="144.0" layoutY="180.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField layoutX="144.0" layoutY="220.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField layoutX="144.0" layoutY="261.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField layoutX="143.0" layoutY="310.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField layoutX="143.0" layoutY="358.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txtperson" layoutX="144.0" layoutY="95.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txtadddress" layoutX="144.0" layoutY="135.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txtstate" layoutX="144.0" layoutY="180.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txtcountry" layoutX="144.0" layoutY="220.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txttype" layoutX="144.0" layoutY="261.0" prefHeight="25.0" prefWidth="241.0" />
+      <DatePicker fx:id="datetimestart" layoutX="144.0" layoutY="315.0" prefHeight="25.0" prefWidth="241.0" />
+      <DatePicker fx:id="datetimeend" layoutX="142.0" layoutY="358.0" prefHeight="25.0" prefWidth="241.0" />
    </children>
 </AnchorPane>

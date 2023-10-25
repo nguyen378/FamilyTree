@@ -17,9 +17,13 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+<<<<<<< Updated upstream
 
         scene = new Scene(loadFXML("login"), 800, 450);
 
+=======
+        scene = new Scene(loadFXML("livingat"), 800, 450);
+>>>>>>> Stashed changes
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Login Form");
