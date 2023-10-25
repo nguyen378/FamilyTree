@@ -75,6 +75,7 @@ public class RelationController implements Initializable {
                 listID.add(record.get("id").toString());
             }
             cboPs1ID.setItems(FXCollections.observableArrayList(listID));
+            session.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
         }
@@ -90,6 +91,7 @@ public class RelationController implements Initializable {
                     Result result = session.run(query);
                     org.neo4j.driver.Record record = result.next();
                     txtPs1Name.setText(record.get("name").toString());
+                    session.close();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
                 }
@@ -108,6 +110,7 @@ public class RelationController implements Initializable {
                 listID.add(record.get("id").toString());
             }
             cboPs2ID.setItems(FXCollections.observableArrayList(listID));
+            session.close();
 //            cboPs1ID.valueProperty().addListener(new ChangeListener<String>() {
 //                @Override
 //                public void changed(ObservableValue<? extends String> ov, String t, String t1) {
@@ -129,6 +132,7 @@ public class RelationController implements Initializable {
                     Result result = session.run(query);
                     org.neo4j.driver.Record record = result.next();
                     txtPs2Name.setText(record.get("name").toString());
+                    session.close();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
                 }
@@ -147,6 +151,7 @@ public class RelationController implements Initializable {
                 listID.add(record.get("relation").toString());
             }
             cboRelation.setItems(FXCollections.observableArrayList(listID));
+            session.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
         }
@@ -159,7 +164,7 @@ public class RelationController implements Initializable {
                 int id1 = Integer.parseInt(cboPs1ID.getValue().toString());
                 int id2 = Integer.parseInt(cboPs2ID.getValue().toString());
                 String rela = cboRelation.getValue().toString();
-                String query = "match (p1:Information{id :" + id1 + "}),(p2:Information{id: " + id2 + "}) create (p1)-[:Has_Relation{relation:'" + rela + "'}]->(p2)  ";
+                String query = "match (p1:Information{id :" + id1 + "}),(p2:Information{id: " + id2 + "}) create (p1)-[:Has_Relation{relation:'"+rela+"'}]->(p2)  ";
                 try (Driver driver = ConnectDatbase.createDriver()) {
                     Session session = driver.session();
                     try {
@@ -168,6 +173,7 @@ public class RelationController implements Initializable {
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Addition failed!", "Error", 1);
                     }
+                    session.close();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
                 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="501.0" style="-fx-background-color: EAE6d7;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.LocationController">
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="501.0" style="-fx-background-color: EAE6d7;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.LocationController">
     <stylesheets>
         <URL value="@/donutnv/familytree/styles/location.css" />
     </stylesheets>
@@ -18,7 +18,7 @@
             <Font name="Vivaldi Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="90.0" text="PersonId">
+      <Label layoutX="37.0" layoutY="90.0" text="ID">
          <font>
             <Font name="Vivaldi Italic" size="20.0" />
          </font>
@@ -38,7 +38,7 @@
             <Font name="Vivaldi Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="265.0" text="Type">
+      <Label layoutX="37.0" layoutY="266.0" text="Type">
          <font>
             <Font name="Vivaldi Italic" size="20.0" />
          </font>
@@ -53,27 +53,28 @@
             <Font name="Vivaldi Italic" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnadd" layoutX="143.0" layoutY="404.0" mnemonicParsing="false" onAction="#buttonadd" text="Add">
+      <Button fx:id="btnAdd" layoutX="143.0" layoutY="404.0" mnemonicParsing="false" text="Add">
          <font>
             <Font name="Pristina" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btndel" layoutX="231.0" layoutY="404.0" mnemonicParsing="false" onAction="#buttondelete" text="Delete">
+      <Button fx:id="btnDelete" layoutX="231.0" layoutY="404.0" mnemonicParsing="false" text="Delete">
          <font>
             <Font name="Pristina" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnedit" layoutX="329.0" layoutY="404.0" mnemonicParsing="false" onAction="#buttonedit" text="Edit">
+      <Button fx:id="btnEdit" layoutX="329.0" layoutY="404.0" mnemonicParsing="false" text="Edit">
          <font>
             <Font name="Pristina" size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="txtperson" layoutX="144.0" layoutY="95.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField fx:id="txtadddress" layoutX="144.0" layoutY="135.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField fx:id="txtstate" layoutX="144.0" layoutY="180.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField fx:id="txtcountry" layoutX="144.0" layoutY="220.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField fx:id="txttype" layoutX="144.0" layoutY="261.0" prefHeight="25.0" prefWidth="241.0" />
-      <DatePicker fx:id="datetimestart" layoutX="144.0" layoutY="315.0" prefHeight="25.0" prefWidth="241.0" />
-      <DatePicker fx:id="datetimeend" layoutX="142.0" layoutY="358.0" prefHeight="25.0" prefWidth="241.0" />
+
+      <TextField fx:id="txtID" layoutX="144.0" layoutY="95.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txtAddress" layoutX="144.0" layoutY="135.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txtState" layoutX="144.0" layoutY="180.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txtCountry" layoutX="144.0" layoutY="220.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="txtType" layoutX="144.0" layoutY="267.0" prefHeight="25.0" prefWidth="241.0" />
+      <DatePicker fx:id="dpStart" layoutX="144.0" layoutY="314.0" prefHeight="26.0" prefWidth="242.0" />
+      <DatePicker fx:id="dpEnd" layoutX="144.0" layoutY="357.0" prefHeight="26.0" prefWidth="242.0" />
    </children>
 </AnchorPane>

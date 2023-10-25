@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@styles/addinformation.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.DeleteInfomationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@styles/addinformation.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.DeleteLocationController">
    <children>
-      <Label layoutX="98.0" layoutY="40.0" text="Delete Information">
+      <Label layoutX="141.0" layoutY="45.0" text="Delete Location">
          <font>
             <Font name="Vivaldi Italic" size="60.0" />
          </font>
       </Label>
-      <Pane layoutX="98.0" layoutY="133.0" prefHeight="161.0" prefWidth="402.0">
+      <Pane layoutX="108.0" layoutY="143.0" prefHeight="161.0" prefWidth="402.0">
          <children>
             <Label layoutX="27.0" layoutY="34.0" prefHeight="39.0" prefWidth="73.0" text="ID">
                <font>
@@ -41,7 +41,7 @@
             </TextField>
          </children>
       </Pane>
-      <Button fx:id="btnDelete" layoutX="98.0" layoutY="313.0" mnemonicParsing="false" style="-fx-background-color: #5D7B6F; -fx-text-fill: #fff; -fx-cursor: hand;" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css" text="Delete ">
+      <Button fx:id="btnDelete" layoutX="108.0" layoutY="323.0" mnemonicParsing="false" style="-fx-background-color: #5D7B6F; -fx-text-fill: #fff; -fx-cursor: hand;" styleClass="txtfiled-design" stylesheets="@styles/addinformation.css" text="Delete ">
          <font>
             <Font name="Pristina" size="24.0" />
          </font>
