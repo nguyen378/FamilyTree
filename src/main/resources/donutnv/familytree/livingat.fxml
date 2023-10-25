@@ -3,13 +3,11 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="livingstt" prefHeight="510.0" prefWidth="461.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.LivingatController">
+<AnchorPane id="AnchorPane" fx:id="livingstt" prefHeight="279.0" prefWidth="461.0" style="-fx-background-color: EAE7D6;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donutnv.familytree.Controller.LivingatController">
     <stylesheets>
         <URL value="@/donutnv/familytree/styles/livingat.css" />
     </stylesheets>
@@ -49,36 +47,19 @@
             <Font name="Vivaldi Italic" size="12.0" />
          </font>
       </TextField>
-      <TableView fx:id="table1" layoutX="33.0" layoutY="289.0" prefHeight="200.0" prefWidth="400.0">
-        <columns>
-          <TableColumn prefWidth="134.0" text="PersonID" />
-          <TableColumn minWidth="0.0" prefWidth="136.0" text="LocationID" />
-            <TableColumn minWidth="2.5" prefWidth="129.0" text="LivingStatus" />
-        </columns>
-      </TableView>
-      <Button fx:id="btnshow" layoutX="33.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonshow" style="-fx-border-color: 5D7B6F;" text="Show" textFill="#272525">
+      <Button fx:id="btnadd" layoutX="120.0" layoutY="220.0" mnemonicParsing="false" onAction="#buttonadd" text="Add">
          <font>
-            <Font name="Vivaldi Italic" size="12.0" />
+            <Font name="Pristina" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnadd" layoutX="114.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonadd" text="Add">
+      <Button fx:id="btndel" layoutX="211.0" layoutY="223.0" mnemonicParsing="false" onAction="#buttondel" text="Delete">
          <font>
-            <Font name="Vivaldi Italic" size="12.0" />
+            <Font name="Pristina" size="17.0" />
          </font>
       </Button>
-      <Button fx:id="btndel" layoutX="195.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttondel" text="Delete">
+      <Button fx:id="btnedit" layoutX="311.0" layoutY="220.0" mnemonicParsing="false" onAction="#buttonedit" text="Edit">
          <font>
-            <Font name="Vivaldi Italic" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnedit" layoutX="282.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonedit" text="Edit">
-         <font>
-            <Font name="Vivaldi Italic" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnfind" layoutX="371.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonfind" text="Find">
-         <font>
-            <Font name="Vivaldi Italic" size="12.0" />
+            <Font name="Pristina" size="19.0" />
          </font>
       </Button>
    </children>
