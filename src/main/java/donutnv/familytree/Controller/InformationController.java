@@ -37,6 +37,7 @@ public class InformationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         // TODO
     }    
     

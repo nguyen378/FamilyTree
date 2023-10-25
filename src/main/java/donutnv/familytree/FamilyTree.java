@@ -4,6 +4,11 @@
  */
 package donutnv.familytree;
 
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import com.mxgraph.layout.hierarchical.mxHierarchicalLayout;
 import com.mxgraph.layout.mxCompactTreeLayout;
 import com.mxgraph.model.mxCell;
@@ -15,13 +20,24 @@ import com.mxgraph.util.mxEventObject;
 import com.mxgraph.util.mxEventSource;
 import com.mxgraph.view.mxGraph;
 import com.mxgraph.view.mxStylesheet;
+import donutnv.familytree.Controller.InformationController;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javax.swing.JFrame;
+import javafx.scene.layout.Pane;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import org.jgrapht.graph.DefaultEdge;
@@ -34,6 +50,7 @@ import static org.neo4j.driver.Values.parameters;
 import org.neo4j.driver.types.Node;
 import org.neo4j.driver.Record;
 import org.neo4j.driver.Value;
+import org.neo4j.driver.Values;
 import org.neo4j.driver.types.Relationship;
 
 /**
@@ -106,25 +123,33 @@ class FoldableTree extends mxGraph {
     }
 }
 
+
 public class FamilyTree extends javax.swing.JFrame {
 
     private static final long serialVersionUID = -2707712944901661771L;
     FoldableTree graph = new FoldableTree();
     Object root = null;
+    private String username;
+    private String sex;
+    private String dateOfBirth;
+    private String placeOfBirth;
+    
+    
+    
 
     /**
      * Creates new form ChampsTree
      */
     public FamilyTree() {
 
-         mxGraphComponent graphComponent = new mxGraphComponent(graph);
-
+        mxGraphComponent graphComponent = new mxGraphComponent(graph);
         // Set the background color of the graph component
         graphComponent.setBackground(new Color(0xEAE7D6));
 
         // Set the vertex style in the stylesheet
         mxStylesheet stylesheet = graph.getStylesheet();
         Map<String, Object> vertexStyle = stylesheet.getDefaultVertexStyle();
+        vertexStyle.put(mxConstants.STYLE_FONTFAMILY, "Arial");
         vertexStyle.put(mxConstants.STYLE_FONTCOLOR, "#5D7B6F");
         vertexStyle.put(mxConstants.STYLE_FONTSTYLE, Font.PLAIN);
 
@@ -137,7 +162,7 @@ public class FamilyTree extends javax.swing.JFrame {
 
         // Add the graph component to the content pane
         getContentPane().add(graphComponent);
-        
+
         Object parent = graph.getDefaultParent();
         try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@")); Session session = driver.session()) {
             String cypherQuery = "MATCH (root:Information)-[r:Has_Relation]->()\n"
@@ -185,8 +210,29 @@ public class FamilyTree extends javax.swing.JFrame {
                 layout.execute(graph.getDefaultParent());
             }
         });
+        graphComponent.getGraphControl().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Kiểm tra cho sự click đơn
+                if (e.getClickCount() == 1) {
+                    // Lấy cell tại tọa độ chuột
+                    Object cell = graphComponent.getCellAt(e.getX(), e.getY());
 
-//        mxGraphComponent graphComponent = new mxGraphComponent(graph);
+                    if (cell instanceof mxICell) {
+                        mxICell mxCell = (mxICell) cell;
+
+                        if (mxCell.isVertex()) {
+                            // Lấy giá trị của node name từ cell
+                            String nodeName = (String) mxCell.getValue();
+                            // Truy vấn Neo4j và hiển thị thông tin
+                            String info = queryNeo4j(nodeName);
+                            
+                        }
+                    }
+                }
+            }
+        });
+
         getContentPane().add(graphComponent);
     }
 
@@ -362,6 +408,50 @@ public class FamilyTree extends javax.swing.JFrame {
         return greatChild;
     }
 
+    private String queryNeo4j(String nodeName) {
+        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
+            try (Session session = driver.session()) {
+                String query = "MATCH (person:Information) WHERE person.name = $name "
+                        + "RETURN person.name AS name, person.sex AS sex, "
+                        + "person.dateOfBirth AS dateOfBirth, "
+                        + "person.placeOfBirth AS placeOfBirth";
+                Result result = session.run(query, Values.parameters("name", nodeName));
+
+                if (result.hasNext()) {
+                    Record record = result.next();
+                    username = record.get("name").asString();
+                    sex = record.get("sex").asString();
+                    dateOfBirth = record.get("dateOfBirth").asLocalDate().toString();
+                    placeOfBirth = record.get("placeOfBirth").asString();
+                } else {
+                    return "Person not found!";
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error while querying Neo4j.";
+        }
+        return null;
+    }
+//     private void initializeJavaFX(Pane jfxPanel) {
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/path/to/Information.fxml"));
+//            Scene scene = new Scene(loader.load());
+//
+//            // Set the scene to the JFXPanel
+//            jfxPanel.setScene(scene);
+//
+//            // Get the controller instance
+//            InformationController controller = loader.getController();
+//
+//            // You can now call methods or access properties of the controller
+//            controller.setInformation("John Doe", "Male", "1990-01-01", "City");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -417,7 +507,7 @@ public class FamilyTree extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-         
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
