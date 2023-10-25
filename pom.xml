@@ -35,6 +35,11 @@
             <artifactId>jgrapht-demo</artifactId>
             <version>1.5.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>19-ea+9</version>
+        </dependency>
     </dependencies>
     <build>
         

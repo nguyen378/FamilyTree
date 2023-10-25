@@ -226,6 +226,8 @@ public class FamilyTree extends javax.swing.JFrame {
                             String nodeName = (String) mxCell.getValue();
                             // Truy vấn Neo4j và hiển thị thông tin
                             String info = queryNeo4j(nodeName);
+                            Information app = new Information(info);
+                            app.setVisible(true);
                             
                         }
                     }
