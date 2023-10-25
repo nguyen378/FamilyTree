@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="501.0" style="-fx-background-color: EAE6d7;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="donutnv.familytree.Controller.LocationController">
+    <stylesheets>
+        <URL value="@/donutnv/familytree/styles/location.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="208.0" layoutY="27.0" text="Location">
+         <font>
+            <Font name="Vivaldi Italic" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="90.0" text="PersonId">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="139.0" text="Address">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="184.0" text="State">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="224.0" text="Country">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="265.0" text="Type">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="314.0" text="StartDate">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="357.0" text="EndDate">
+         <font>
+            <Font name="Vivaldi Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="143.0" layoutY="404.0" mnemonicParsing="false" text="Add">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="231.0" layoutY="404.0" mnemonicParsing="false" text="Delete">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="329.0" layoutY="404.0" mnemonicParsing="false" text="Edit">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+      </Button>
+      <TextField layoutX="144.0" layoutY="95.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField layoutX="144.0" layoutY="135.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField layoutX="144.0" layoutY="180.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField layoutX="144.0" layoutY="220.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField layoutX="144.0" layoutY="261.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField layoutX="143.0" layoutY="310.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField layoutX="143.0" layoutY="358.0" prefHeight="25.0" prefWidth="241.0" />
+   </children>
+</AnchorPane>
