@@ -42,7 +42,85 @@ public class HomeController implements Initializable {
     @FXML
     private Button buttonlv; 
     @FXML
+    private Button buttonrela; 
+    @FXML
+    private Button buttoninfor; 
+    @FXML
+    private Button buttonlocat; 
+    @FXML
     private void buttonliving(ActionEvent event)
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+           Node sourceNode = (Node) event.getSource();
+            Stage stage = (Stage) sourceNode.getScene().getWindow();
+            stage.close();
+            Stage newStage = new Stage();
+            newStage.setTitle("Living At");
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void buttonrelation(ActionEvent event)
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+           Node sourceNode = (Node) event.getSource();
+            Stage stage = (Stage) sourceNode.getScene().getWindow();
+            stage.close();
+            Stage newStage = new Stage();
+            newStage.setTitle("Living At");
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void buttoninformation(ActionEvent event)
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+           Node sourceNode = (Node) event.getSource();
+            Stage stage = (Stage) sourceNode.getScene().getWindow();
+            stage.close();
+            Stage newStage = new Stage();
+            newStage.setTitle("Living At");
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void buttonlocation(ActionEvent event)
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+           Node sourceNode = (Node) event.getSource();
+            Stage stage = (Stage) sourceNode.getScene().getWindow();
+            stage.close();
+            Stage newStage = new Stage();
+            newStage.setTitle("Living At");
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void buttonshow(ActionEvent event)
     {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
         try {
