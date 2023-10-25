@@ -103,8 +103,9 @@ public class DeleteInfomationController implements Initializable {
             cboID.setItems(FXCollections.observableArrayList(listID));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
-
         }
     }
+    
+
 
 }
