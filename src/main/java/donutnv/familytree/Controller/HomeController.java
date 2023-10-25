@@ -54,12 +54,12 @@ public class HomeController implements Initializable {
 
     @FXML
     private void buttonliving(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("DeleteInfomation.fxml"));
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Livingat.fxml"));
         Parent root;
         try {
             root = loader.load();
             Stage newStage = new Stage();
-            newStage.setTitle("Delete");
+            newStage.setTitle("Living at");
             newStage.setScene(new Scene(root));
             newStage.show();
         } catch (IOException ex) {
@@ -104,7 +104,7 @@ public class HomeController implements Initializable {
         try {
             root = loader.load();
             Stage newStage = new Stage();
-            newStage.setTitle("Delete");
+            newStage.setTitle("Location");
             newStage.setScene(new Scene(root));
             newStage.show();
         } catch (IOException ex) {
