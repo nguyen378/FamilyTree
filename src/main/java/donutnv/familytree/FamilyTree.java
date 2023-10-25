@@ -164,7 +164,7 @@ public class FamilyTree extends javax.swing.JFrame {
         getContentPane().add(graphComponent);
 
         Object parent = graph.getDefaultParent();
-        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@")); Session session = driver.session()) {
+        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "123456789")); Session session = driver.session()) {
             String cypherQuery = "MATCH (root:Information)-[r:Has_Relation]->()\n"
                     + "WHERE NOT (()-[:Has_Relation]->(root)) AND (r.relation='Cha con' OR r.relation='Mẹ con')"
                     + "OPTIONAL MATCH (root)-[o:Has_Relation{relation:'Vợ chồng'}]-(spouse:Information)"
@@ -226,6 +226,8 @@ public class FamilyTree extends javax.swing.JFrame {
                             String nodeName = (String) mxCell.getValue();
                             // Truy vấn Neo4j và hiển thị thông tin
                             String info = queryNeo4j(nodeName);
+                            Information app = new Information(info);
+                            app.setVisible(true);
                             
                         }
                     }
@@ -241,7 +243,7 @@ public class FamilyTree extends javax.swing.JFrame {
         String cypherQuery = "MATCH (root:Information{name:\"Nguyễn Ngọc Ðoàn \"})-[r:Has_Relation{relation:\"Cha con\"}]->(nextgen:Information)"
                 + "OPTIONAL MATCH (nextgen)-[o:Has_Relation{relation:\"Vợ chồng\"}]-(spouse:Information)"
                 + "RETURN nextgen, spouse,r,o";
-        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@")); Session session = driver.session()) {
+        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "123456789")); Session session = driver.session()) {
             Result result = session.run(cypherQuery, parameters("rootName", rootName, "relationType", relationType));
             while (result.hasNext()) {
                 int xOffset = 0;
@@ -292,7 +294,7 @@ public class FamilyTree extends javax.swing.JFrame {
             String cypherQuery = "MATCH (child:Information{name:$childName})-[r:Has_Relation{relation:$relationType}]->(grandchild:Information)"
                     + "OPTIONAL MATCH (grandchild)-[o:Has_Relation{relation:'Vợ chồng'}]-(spouse:Information)"
                     + "RETURN grandchild, spouse, r, o";
-            try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@")); Session session = driver.session()) {
+            try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "123456789")); Session session = driver.session()) {
                 Result result = session.run(cypherQuery, parameters("childName", childName, "relationType", relationType));
                 while (result.hasNext()) {
                     int xOffset = 0;
@@ -357,7 +359,7 @@ public class FamilyTree extends javax.swing.JFrame {
             String cypherQuery = "MATCH (child:Information{name:$childName})-[r:Has_Relation{relation:$relationType}]->(grandchild:Information)"
                     + "OPTIONAL MATCH (grandchild)-[o:Has_Relation{relation:'Vợ chồng'}]-(spouse:Information)"
                     + "RETURN grandchild, spouse, r, o";
-            try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@")); Session session = driver.session()) {
+            try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "123456789")); Session session = driver.session()) {
                 Result result = session.run(cypherQuery, parameters("childName", childName, "relationType", relationType));
                 while (result.hasNext()) {
                     int xOffset = 0;
@@ -409,7 +411,7 @@ public class FamilyTree extends javax.swing.JFrame {
     }
 
     private String queryNeo4j(String nodeName) {
-        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
+        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "123456789"))) {
             try (Session session = driver.session()) {
                 String query = "MATCH (person:Information) WHERE person.name = $name "
                         + "RETURN person.name AS name, person.sex AS sex, "

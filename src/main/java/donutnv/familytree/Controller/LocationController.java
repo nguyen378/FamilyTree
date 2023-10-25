@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
  */
 public class LocationController implements Initializable {
 
+    
     /**
      * Initializes the controller class.
      */

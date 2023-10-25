@@ -4,23 +4,31 @@
  */
 package donutnv.familytree.Controller;
 
+import donutnv.familytree.App;
 import donutnv.familytree.DataBase.ConnectDatbase;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.css.converter.StringConverter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.Session;
@@ -54,6 +62,9 @@ public class AddInformationController implements Initializable {
     private TextField txtNotes;
     @FXML
     private Button btnAdd;
+    @FXML
+    private Button btndelete;
+    private static Scene scene;
 
     /**
      * Initializes the controller class.
@@ -96,7 +107,25 @@ public class AddInformationController implements Initializable {
             }
 
         });
+        btndelete.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
 
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("DeleteInfomation.fxml"));
+                Parent root;
+                try {
+                    root = loader.load();
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Delete");
+                    newStage.setScene(new Scene(root));
+                    newStage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(AddInformationController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+        );
     }
 
     @FXML
@@ -127,4 +156,5 @@ public class AddInformationController implements Initializable {
             JOptionPane.showMessageDialog(null, "Connection error!", "Error", 1);
         }
     }
+
 }
