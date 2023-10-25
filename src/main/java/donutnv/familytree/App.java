@@ -13,12 +13,12 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    private static Scene scene; 
 
     @Override
     public void start(Stage stage) throws IOException {
 
-        scene = new Scene(loadFXML("login"), 800, 450);
+        scene = new Scene(loadFXML("home"));
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Login Form");
