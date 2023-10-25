@@ -124,6 +124,11 @@
                   <Font name="Poor Richard" size="24.0" />
                </font>
             </Button>
+            <Button id="btnAdd" fx:id="btndelete" layoutX="170.0" layoutY="18.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #5D7B6F; -fx-text-fill: #FFF; -fx-cursor: hand;" stylesheets="@styles/addinformation.css" text="Delete">
+               <font>
+                  <Font name="Poor Richard" size="24.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

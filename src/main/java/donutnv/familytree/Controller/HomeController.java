@@ -4,6 +4,7 @@
  */
 package donutnv.familytree.Controller;
 
+import donutnv.familytree.App;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,13 +18,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import donutnv.familytree.FamilyTree;
+import donutnv.familytree.Information;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javax.swing.JFrame;
 
 /**
  * FXML Controller class
@@ -38,105 +43,81 @@ public class HomeController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     @FXML
-    private Button buttonlv; 
+    private Button buttonlv;
     @FXML
-    private Button buttonrela; 
+    private Button buttonrela;
     @FXML
-    private Button buttoninfor; 
+    private Button buttoninfor;
     @FXML
-    private Button buttonlocat; 
+    private Button buttonlocat;
+
     @FXML
-    private void buttonliving(ActionEvent event)
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
+    private void buttonliving(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("DeleteInfomation.fxml"));
+        Parent root;
         try {
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-           Node sourceNode = (Node) event.getSource();
-            Stage stage = (Stage) sourceNode.getScene().getWindow();
-            stage.close();
+            root = loader.load();
             Stage newStage = new Stage();
-            newStage.setTitle("Living At");
-            newStage.setScene(scene);
+            newStage.setTitle("Delete");
+            newStage.setScene(new Scene(root));
             newStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(AddInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     @FXML
-    private void buttonrelation(ActionEvent event)
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
+    private void buttonrelation(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("relation.fxml"));
+        Parent root;
         try {
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-           Node sourceNode = (Node) event.getSource();
-            Stage stage = (Stage) sourceNode.getScene().getWindow();
-            stage.close();
+            root = loader.load();
             Stage newStage = new Stage();
-            newStage.setTitle("Living At");
-            newStage.setScene(scene);
+            newStage.setTitle("Relation");
+            newStage.setScene(new Scene(root));
             newStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(AddInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     @FXML
-    private void buttoninformation(ActionEvent event)
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
+    private void buttoninformation(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("AddInformation.fxml"));
+        Parent root;
         try {
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-           Node sourceNode = (Node) event.getSource();
-            Stage stage = (Stage) sourceNode.getScene().getWindow();
-            stage.close();
+            root = loader.load();
             Stage newStage = new Stage();
-            newStage.setTitle("Living At");
-            newStage.setScene(scene);
+            newStage.setTitle("Delete");
+            newStage.setScene(new Scene(root));
             newStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(AddInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     @FXML
-    private void buttonlocation(ActionEvent event)
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
+    private void buttonlocation(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("location.fxml"));
+        Parent root;
         try {
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-           Node sourceNode = (Node) event.getSource();
-            Stage stage = (Stage) sourceNode.getScene().getWindow();
-            stage.close();
+            root = loader.load();
             Stage newStage = new Stage();
-            newStage.setTitle("Living At");
-            newStage.setScene(scene);
+            newStage.setTitle("Delete");
+            newStage.setScene(new Scene(root));
             newStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(AddInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     @FXML
-    private void buttonshow(ActionEvent event)
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/donutnv/familytree/livingat.fxml"));
-        try {
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-           Node sourceNode = (Node) event.getSource();
-            Stage stage = (Stage) sourceNode.getScene().getWindow();
-            stage.close();
-            Stage newStage = new Stage();
-            newStage.setTitle("Living At");
-            newStage.setScene(scene);
-            newStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void buttonshow(ActionEvent event) {
+        FamilyTree familyTree = new FamilyTree();
+        familyTree.setVisible(true);
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnShowFamilyTree.setOnAction(new EventHandler<ActionEvent>() {
@@ -151,6 +132,4 @@ public class HomeController implements Initializable {
 
         });
     }
-    // TODO
-
 }
