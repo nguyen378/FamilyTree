@@ -14,5 +14,4 @@ module donutnv.familytree {
     requires org.jgrapht.ext;
     requires org.jgrapht.demo;
     opens donutnv.familytree.Controller to javafx.fxml;
-    requires javafx.swing;
 }
